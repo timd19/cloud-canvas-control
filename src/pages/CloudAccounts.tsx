@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useAuth } from "@/context/auth-context";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { toast } from "sonner";
-import { Search, Cloud, Plus, Users, Tag, Shield, CheckCircle, AlertCircle, XCircle, Edit, Trash, RefreshCw } from "lucide-react";
+import { Search, Cloud, Plus, Users, Tag, Shield, CheckCircle, AlertCircle, XCircle, Edit, Trash, RefreshCw, X } from "lucide-react";
 import { mockCloudAccounts } from "@/data/mock-data";
 import { CloudAccount } from "@/types/auth";
 
@@ -32,8 +31,19 @@ const mockDiscoveredAccounts = [
   { id: "gcp-proj-3", name: "Infrastructure", type: "project", provider: "gcp", status: "inactive" }
 ];
 
+// Define proper type for created cloud accounts
+interface CreatedCloudAccount {
+  id: string;
+  name: string;
+  description: string;
+  cloudAccounts: string[];
+  tags: Record<string, string>;
+  createdAt: string;
+  status: string;
+}
+
 // Mock data for created cloud accounts
-const mockCreatedCloudAccounts = [
+const mockCreatedCloudAccounts: CreatedCloudAccount[] = [
   {
     id: "acc-1",
     name: "Production Infrastructure",
@@ -68,7 +78,7 @@ const CloudAccounts = () => {
     tags: {} as Record<string, string>
   });
   
-  const [cloudAccounts, setCloudAccounts] = useState(mockCreatedCloudAccounts);
+  const [cloudAccounts, setCloudAccounts] = useState<CreatedCloudAccount[]>(mockCreatedCloudAccounts);
   const [tagKey, setTagKey] = useState("");
   const [tagValue, setTagValue] = useState("");
   
@@ -101,7 +111,7 @@ const CloudAccounts = () => {
       return;
     }
     
-    const createdAccount = {
+    const createdAccount: CreatedCloudAccount = {
       id: `acc-${Date.now()}`,
       name: newCloudAccount.name,
       description: newCloudAccount.description,

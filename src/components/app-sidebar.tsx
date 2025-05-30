@@ -14,7 +14,8 @@ import {
   Users,
   Upload,
   CloudCog,
-  Shield
+  Shield,
+  CheckSquare
 } from "lucide-react";
 import {
   Sidebar,
@@ -107,6 +108,7 @@ export function AppSidebar() {
             <NavItem to="/" icon={Activity} label="Dashboard" collapsed={collapsed} />
             <NavItem to="/catalog" icon={FileCode} label="Template Catalog" collapsed={collapsed} />
             <NavItem to="/deployments" icon={Database} label="Deployments" collapsed={collapsed} />
+            <NavItem to="/approvals" icon={CheckSquare} label="Approvals" collapsed={collapsed} />
           </SidebarSection>
 
           {/* Admin Settings Section - visible to admin and msp roles */}

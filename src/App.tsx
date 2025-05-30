@@ -12,6 +12,8 @@ import Catalog from "@/pages/Catalog";
 import TemplateDetails from "@/pages/TemplateDetails";
 import Deployments from "@/pages/Deployments";
 import DeploymentDetails from "@/pages/DeploymentDetails";
+import Approvals from "@/pages/Approvals";
+import ApprovalDetails from "@/pages/ApprovalDetails";
 import Settings from "@/pages/Settings";
 import Tenants from "@/pages/Tenants";
 import TenantTemplateFoundry from "@/pages/TenantTemplateFoundry";
@@ -41,6 +43,8 @@ const App = () => (
               <Route path="/catalog/:templateId" element={<TemplateDetails />} />
               <Route path="/deployments" element={<Deployments />} />
               <Route path="/deployments/:deploymentId" element={<DeploymentDetails />} />
+              <Route path="/approvals" element={<Approvals />} />
+              <Route path="/approvals/:approvalId" element={<ApprovalDetails />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/tenants" element={<Tenants />} />
               <Route path="/template-foundry" element={<TenantTemplateFoundry />} />
